@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sb-effort" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ad2dcbbb-e51a-495d-b898-a50d9efce47e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<parameter name="projectId" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT i.issue_name, em.employee_name, e.hours, e.effort_description FROM effort e LEFT JOIN issue i ON e.project_id=i.project_id AND e.issue_id=i.issue_id LEFT JOIN employee em ON e.employee_id=em.employee_id WHERE e.project_id=$P{projectId}]]>
+	</queryString>
+	<field name="issue_name" class="java.lang.String"/>
+	<field name="employee_name" class="java.lang.String"/>
+	<field name="hours" class="java.lang.Integer"/>
+	<field name="effort_description" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="cbfbfdb6-433a-4da7-b0d0-7b455d8c28fd"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="69df0c26-1be6-4fda-a776-393a9a3aa203">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d826d587-f337-481f-85d2-696e57ee44de"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Issue name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="110" height="20" uuid="20220965-f298-4fce-a628-5627a90653c3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5ac0ddc-48ef-4d52-89e2-bc37e3148de5"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Employee name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="110" height="20" uuid="8c47f707-2c42-49f9-861c-bfd30ed3e2d8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b839b505-b29a-4119-9825-d50af34628b4"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hours]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="170" height="20" uuid="b9bb4150-4757-43cf-bc7b-b8f3afe977a0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="42055dfb-97b5-48c2-804e-4748d8cbeead"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="934207b2-7209-4fea-88c8-954443385053">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d826d587-f337-481f-85d2-696e57ee44de"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{issue_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="110" height="20" uuid="b27343d4-9fc9-48f2-a95c-0342c77ebc56">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="42055dfb-97b5-48c2-804e-4748d8cbeead"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{employee_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="110" height="20" uuid="08dcad77-470f-404c-9376-a2d5edc8ab79">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="42055dfb-97b5-48c2-804e-4748d8cbeead"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{hours}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="170" height="20" uuid="5e809f38-11f6-4c98-8913-d8b156809858">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="42055dfb-97b5-48c2-804e-4748d8cbeead"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{effort_description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Employee" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecf15453-8b04-4a64-b21e-51c4b47bec0a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<parameter name="employeeId" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="employeeName" class="java.lang.String"/>
+	<parameter name="subReportIssue" class="net.sf.jasperreports.engine.JasperReport">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{subReportIssue}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subReportChart" class="net.sf.jasperreports.engine.JasperReport">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[$P{subReportChart}]]></defaultValueExpression>
+	</parameter>
+	<field name="employeeId" class="java.lang.Integer"/>
+	<field name="employeeName" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="324">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="140" backcolor="#006699" uuid="441936fc-c1a6-4fd4-86e7-e7b1d137d650"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="615c590b-c50d-49a7-8be5-823b7aa8bf71"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Employee Report]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="60" width="100" height="30" forecolor="#FFFFFF" uuid="ef3e73ea-836e-40bc-88e5-24bb0f98fc0a">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="13"/>
+					</textElement>
+					<text><![CDATA[Employee name:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="160" y="60" width="170" height="30" forecolor="#FFFFFF" uuid="2c840f4c-bf04-4359-a736-af7db3818807">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employeeName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="20" y="80" width="150" height="30" forecolor="#FFFFFF" uuid="524b4b50-09dd-40e4-99f1-74c6319d6b9c">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="13"/>
+					</textElement>
+					<text><![CDATA[Report description:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="160" y="80" width="380" height="30" forecolor="#FFFFFF" uuid="664987d5-3b22-45d7-956a-3aee1d7daf09">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font size="13"/>
+					</textElement>
+					<text><![CDATA[Employee's issues and employee's hours spent on projects]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="460" y="110" width="110" height="20" forecolor="#FFFFFF" uuid="507f62b8-e7e2-41d8-8bc1-fece20400ded">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Created by: " +$P{createdBy}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement x="2" y="130" width="550" height="194" uuid="5f2165de-7268-47be-949f-c2618c20a260">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="employeeId">
+					<subreportParameterExpression><![CDATA[$F{employeeId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{subReportIssue}]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="230">
+			<subreport>
+				<reportElement x="0" y="3" width="550" height="227" uuid="5f2165de-7268-47be-949f-c2618c20a260">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<subreportParameter name="employeeId">
+					<subreportParameterExpression><![CDATA[$F{employeeId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{subReportChart}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="48b42a32-cc64-4c4f-9491-6c4feb29e2fa"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="05c06252-7ba2-4993-a5b7-986125823a6e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="ab725299-bd75-46a7-b700-898a40042e89"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
